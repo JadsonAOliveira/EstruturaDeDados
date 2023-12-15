@@ -1,26 +1,26 @@
 package lista;
 
 public class Elemento {
-    private String value;
-    private Elemento next;
+    private String valor;
+    private Elemento proximo;
 
-    public Elemento(String newValue) {
-        this.value = newValue;
+    public Elemento(String novoValor) {
+        this.valor = novoValor;
     }
 
-    public String getValue() {
-        return value;
+    public String getValor() {
+        return valor;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setValor(String valor) {
+        this.valor = valor;
     }
 
-    public Elemento getNext() {
-        return next;
+    public Elemento getProximo() {
+        return proximo;
     }
 
-    public void setNext(Elemento next) {
-        this.next = next;
+    public void setProximo(Elemento proximo) {
+        this.proximo = proximo;
     }
 }
