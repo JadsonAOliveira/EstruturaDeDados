@@ -6,19 +6,19 @@ public class vetor2 {
         Scanner in = new Scanner(System.in);
 
         System.out.println("digite o tamanho do vetor: ");
-        int vector_size = in.nextInt();
-        int[] vector = new int[vector_size];
+        int vetor_tamanho = in.nextInt();
+        int[] vetor = new int[vetor_tamanho];
 
 
-        for (int i = 0; i < vector_size; i++){
+        for (int i = 0; i < vetor_tamanho; i++){
             System.out.println("digite um valor para o vetor" + (i+1) +":");
-            vector[i] = in.nextInt();
+            vetor[i] = in.nextInt();
         }
 
         System.out.println("elementos do vetor: ");
 
-        for (int i = 0; i < vector_size; i++){
-            System.out.println("posição " + i + ": " +vector[i]);
+        for (int i = 0; i < vetor_tamanho; i++){
+            System.out.println("posição " + i + ": " +vetor[i]);
             }
         }
     }
