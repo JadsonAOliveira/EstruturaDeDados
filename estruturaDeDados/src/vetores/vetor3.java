@@ -8,39 +8,39 @@ public class vetor3 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        String[] states = new String[10];
+        String[] estados = new String[10];
 
-        states[0] = "AC";
-        states[1] = "BA";
-        states[2] = "CE";
-        states[3] = "DF";
-        states[4] = "AM";
-        states[5] = "AP";
-        states[6] = "PB";
-        states[7] = "RN";
-        states[8] = "MS";
-        states[9] = "SP";
+        estados[0] = "AC";
+        estados[1] = "BA";
+        estados[2] = "CE";
+        estados[3] = "DF";
+        estados[4] = "AM";
+        estados[5] = "AP";
+        estados[6] = "PB";
+        estados[7] = "RN";
+        estados[8] = "MS";
+        estados[9] = "SP";
 
-        for (int i = 0; i < states.length; i++) {
-            System.out.println("state " + i + ": " + states[i]);
+        for (int i = 0; i < estados.length; i++) {
+            System.out.println("estado " + i + ": " + estados[i]);
         }
 
         System.out.println("qual a sigla da busca: ");
-        String search = in.nextLine();
+        String buscaSigla = in.nextLine();
 
         // busca linear
 
-        boolean found = false;
+        boolean encontrou = false;
 
-        for (int i = 0; i < states.length; i++) {
-            String element = states[i];
+        for (int i = 0; i < estados.length; i++) {
+            String elemento = estados[i];
 
-            if (element.equalsIgnoreCase(search)) {
-                found = true;
+            if (elemento.equalsIgnoreCase(buscaSigla)) {
+                encontrou = true;
                 break;
             } 
         }
-            if(found == true){
+            if(encontrou == true){
                 System.out.println("encontrou");
             } else {
                 System.out.println("não encontrou");
