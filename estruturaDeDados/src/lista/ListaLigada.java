@@ -1,65 +1,85 @@
 package lista;
 
 public class ListaLigada {
-    private Elemento first;
-    private Elemento last;
-    private int size;
+    private Elemento primeiro;
+    private Elemento ultimo;
+    private int tamanho;
 
     public ListaLigada() {
-        this.size = 0;
+        this.tamanho = 0;
     }
 
-    public Elemento getFirst() {
-        return first;
+    public Elemento getPrimeiro() {
+        return primeiro;
     }
 
-    public void setFirst(Elemento first) {
-        this.first = first;
+    public void setPrimeiro(Elemento primeiro) {
+        this.primeiro = primeiro;
     }
 
-    public Elemento getLast() {
-        return last;
+    public Elemento getUltimo() {
+        return ultimo;
     }
 
-    public void setLast(Elemento last) {
-        this.last = last;
+    public void setUltimo(Elemento ultimo) {
+        this.ultimo = ultimo;
     }
 
-    public int getSize() {
-        return size;
+    public int getTamanho() {
+        return tamanho;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void setTamanho(int tamanho) {
+        this.tamanho = tamanho;
     }
 
-    public void add(String newValue) {
-        Elemento newElement = new Elemento(newValue);
-        if (this.first == null && this.last == null) {
-            this.first = newElement;
-            this.last = newElement;
+    public void adicionar(String novoValor) {
+        Elemento novElemento = new Elemento(novoValor);
+        if (this.primeiro == null && this.ultimo == null) {
+            this.primeiro = novElemento;
+            this.ultimo = novElemento;
         } else {
-            this.last.setNext(newElement);
-            this.last = newElement;
+            this.ultimo.setProximo(novElemento);
+            this.ultimo = novElemento;
         }
-        this.size++;
+        this.tamanho++;
     }
 
-    public void remove(String newValue) {
+    public void remover(String valorProcurado) {
+        Elemento anterior = null;
+        Elemento atual = this.primeiro;
+        for (int i = 0; i < this.getTamanho(); i++) {
+            if (atual.getValor().equalsIgnoreCase(valorProcurado)) {
+                if(atual == primeiro && atual == ultimo){
+                    this.primeiro = null;
+                    this.ultimo = null;
+                } else if (atual == primeiro) {
+                    this.primeiro = atual.getProximo();
+                    atual.setProximo(null);
+                } else if (atual == ultimo) {
+                    this.ultimo = anterior;
+                    anterior.setProximo(null);
+                } else {
+                    anterior.setProximo(atual.getProximo());
+                    atual = null;
+                }
 
+                this.tamanho--;
+                break;
+            }
+
+            anterior = atual;
+            atual = atual.getProximo();
+        }
     }
 
-    public Elemento get(int position) {
-        Elemento current = this.first;
-        for(int i = 0; i < position; i++){
-            if(current.getNext() != null){
-                current = current.getNext();
+    public Elemento get(int posicao) {
+        Elemento atual = this.primeiro;
+        for (int i = 0; i < posicao; i++) {
+            if (atual.getProximo() != null) {
+                atual = atual.getProximo();
             }
         }
-        return current;
+        return atual;
     }
 }
-
-
-
-
