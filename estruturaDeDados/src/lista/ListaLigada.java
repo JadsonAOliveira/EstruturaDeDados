@@ -1,27 +1,27 @@
 package lista;
 
-public class ListaLigada {
-    private Elemento primeiro;
-    private Elemento ultimo;
+public class ListaLigada<TIPO> {
+    private Elemento<TIPO> primeiro;
+    private Elemento<TIPO> ultimo;
     private int tamanho;
 
     public ListaLigada() {
         this.tamanho = 0;
     }
 
-    public Elemento getPrimeiro() {
+    public Elemento<TIPO> getPrimeiro() {
         return primeiro;
     }
 
-    public void setPrimeiro(Elemento primeiro) {
+    public void setPrimeiro(Elemento<TIPO> primeiro) {
         this.primeiro = primeiro;
     }
 
-    public Elemento getUltimo() {
+    public Elemento<TIPO> getUltimo() {
         return ultimo;
     }
 
-    public void setUltimo(Elemento ultimo) {
+    public void setUltimo(Elemento<TIPO> ultimo) {
         this.ultimo = ultimo;
     }
 
@@ -33,8 +33,8 @@ public class ListaLigada {
         this.tamanho = tamanho;
     }
 
-    public void adicionar(String novoValor) {
-        Elemento novElemento = new Elemento(novoValor);
+    public void adicionar(TIPO novoValor) {
+        Elemento<TIPO> novElemento = new Elemento<TIPO>(novoValor);
         if (this.primeiro == null && this.ultimo == null) {
             this.primeiro = novElemento;
             this.ultimo = novElemento;
@@ -45,12 +45,12 @@ public class ListaLigada {
         this.tamanho++;
     }
 
-    public void remover(String valorProcurado) {
-        Elemento anterior = null;
-        Elemento atual = this.primeiro;
+    public void remover(TIPO valorProcurado) {
+        Elemento<TIPO> anterior = null;
+        Elemento<TIPO> atual = this.primeiro;
         for (int i = 0; i < this.getTamanho(); i++) {
-            if (atual.getValor().equalsIgnoreCase(valorProcurado)) {
-                if(atual == primeiro && atual == ultimo){
+            if (atual.getValor().equals(valorProcurado)) {
+                if (atual == primeiro && atual == ultimo) {
                     this.primeiro = null;
                     this.ultimo = null;
                 } else if (atual == primeiro) {
@@ -81,5 +81,9 @@ public class ListaLigada {
             }
         }
         return atual;
+    }
+
+    public IteratorListaLigada<TIPO> getIterator(){
+        return new IteratorListaLigada<TIPO>(this.primeiro);
     }
 }
