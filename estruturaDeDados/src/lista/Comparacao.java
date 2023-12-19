@@ -11,7 +11,7 @@ public class Comparacao {
 
         // adicionar elementos
 
-        int limite = 1000;
+        int limite = 10000;
         long tempInicial = System.currentTimeMillis();
         long tempFinal = System.currentTimeMillis();
 
@@ -23,7 +23,7 @@ public class Comparacao {
         System.out.println("Adicionou " + limite + " elementos no vetor");
         System.out.println(tempFinal - tempInicial);
 
-        limite = 100000;
+        limite = 10000;
         tempInicial = System.currentTimeMillis();
         tempFinal = System.currentTimeMillis();
 
@@ -46,8 +46,10 @@ public class Comparacao {
         System.out.println(tempFinal - tempInicial);
 
         tempInicial = System.currentTimeMillis();
-        for (int i = 0; i < lista.getTamanho(); i++) {
-            lista.get(i);
+        IteratorListaLigada<Integer> iterator = lista.getIterator();
+
+        while (iterator.temProximo()) {
+            iterator.getProximo();
         }
 
         tempFinal = System.currentTimeMillis();
